@@ -4,6 +4,9 @@
     --secondary: #8F12FD;
     --light: #F0F6FF;
     --dark: #262B47;
+    --satu: #1e4998;
+    --dua: #18819e;
+    --tiga: #02ec86;
 }
 
 
@@ -44,23 +47,23 @@ h6,
 
 /*** Gradient Text & BG ***/
 .text-primary-gradient {
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .text-secondary-gradient {
-    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .bg-primary-gradient {
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 .bg-secondary-gradient {
-    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 
@@ -93,12 +96,12 @@ h6,
 
 .btn.btn-primary-gradient,
 .btn.btn-secondary-gradient::after {
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--tiga), var(--dua));
 }
 
 .btn.btn-secondary-gradient,
 .btn.btn-primary-gradient::after {
-    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 .btn.btn-primary-gradient:hover::after,
@@ -139,7 +142,7 @@ h6,
     bottom: 45px;
     z-index: 99;
     border: none;
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 
@@ -220,7 +223,7 @@ h6,
     }
 
     .navbar-light .navbar-brand h1 {
-        background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+        background: linear-gradient(to bottom right, var(--dua), var(--tiga));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -245,11 +248,11 @@ h6,
     }
 
     .sticky-top.navbar-light .navbar-nav .nav-link::before {
-        border-top-color: var(--primary);
+        border-top-color: var(--tiga);
     }
 
     .sticky-top.navbar-light .navbar-brand h1 {
-        background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+        background: linear-gradient(to bottom right, var(--dua), var(--tiga));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -264,7 +267,7 @@ h6,
         url(../img/bg-circle.png),
         url(../img/bg-triangle.png),
         url(../img/bg-bottom.png),
-        linear-gradient(to bottom right, var(--primary), var(--secondary));
+        linear-gradient(to bottom right, var(--dua), var(--tiga));
     background-position:
         left 0px top 0px,
         right 0px top 50%,
@@ -314,7 +317,7 @@ h6,
 
 .pricing .nav-link.active {
     color: #FFFFFF;
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 
@@ -362,7 +365,7 @@ h6,
     margin: 5px 0;
     width: 15px;
     height: 15px;
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
     border-radius: 15px;
     transition: .5s;
 }
@@ -390,7 +393,7 @@ h6,
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item {
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item h5,
@@ -413,7 +416,7 @@ h6,
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
     border-radius: 60px;
     font-size: 18px;
     transition: .5s;
@@ -421,7 +424,7 @@ h6,
 
 .testimonial-carousel .owl-nav .owl-prev:hover,
 .testimonial-carousel .owl-nav .owl-next:hover {
-    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga));
 }
 
 
@@ -432,7 +435,7 @@ h6,
     background:
         url(../img/bg-circle.png),
         url(../img/bg-triangle.png),
-        linear-gradient(to bottom right, var(--primary), var(--secondary));
+        linear-gradient(to bottom right, var(--dua), var(--tiga));
     background-position:
         left 0px bottom 0px,
         right 0px top 50%,

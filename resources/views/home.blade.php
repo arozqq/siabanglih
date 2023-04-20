@@ -20,7 +20,7 @@
                         <div class="d-flex">
                             <i class="fa fa-users fa-2x text-primary-gradient flex-shrink-0 mt-1"></i>
                             <div class="ms-3">
-                                <h2 class="mb-0" data-toggle="counter-up">1234</h2>
+                                <h3 class="mb-0" data-toggle="counter-up">1234</h3>
                                 <p class="text-primary-gradient mb-0">Total Kandidat</p>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                         <div class="d-flex">
                             <i class="fa fa-clipboard-check fa-2x text-secondary-gradient flex-shrink-0 mt-1"></i>
                             <div class="ms-3">
-                                <h2 class="mb-0" data-toggle="counter-up">1234</h2>
+                                <h3 class="mb-0" data-toggle="counter-up">1234</h3>
                                 <p class="text-secondary-gradient mb-0">Peserta Memilih</p>
                             </div>
                         </div>
@@ -38,8 +38,8 @@
                         <div class="d-flex">
                             <i class="fa fa-user-times fa-2x text-secondary-gradient flex-shrink-0 mt-1"></i>
                             <div class="ms-3">
-                                <h2 class="mb-0" data-toggle="counter-up">1234</h2>
-                                <p class="text-secondary mb-0">Peserta Belum Memilih</p>
+                                <h3 class="mb-0" data-toggle="counter-up">1234</h3>
+                                <p class="text-disabled mb-0">Peserta Belum Memilih</p>
                             </div>
                         </div>
                     </div>
