@@ -25,15 +25,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.7s">
+                 
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
                         <div class="d-flex">
-                            <i class="fa fa-clipboard-check fa-2x text-secondary-gradient flex-shrink-0 mt-1"></i>
-                            <div class="ms-3">
+                            <i class="fa fa-clipboard-check fa-2x text-primary-gradient flex-shrink-0 mt-1"></i>
+                            <div class="ms-4">
                                 <h3 class="mb-0" data-toggle="counter-up">1234</h3>
-                                <p class="text-secondary-gradient mb-0">Peserta Memilih</p>
+                                <p class="text-primary-gradient mb-0">Peserta Sudah Memilih</p>
                             </div>
                         </div>
                     </div>
+                
+                    
                     <div class="col-sm-4 wow fadeIn" data-wow-delay="0.7s">
                         <div class="d-flex">
                             <i class="fa fa-user-times fa-2x text-secondary-gradient flex-shrink-0 mt-1"></i>

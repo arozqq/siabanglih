@@ -94,6 +94,32 @@ h6,
     opacity: 0;
 }
 
+.dropdown .btn-secondary {
+    background: linear-gradient(to bottom right, var(--tiga), var(--dua)) !important;
+    transition: .5s;
+    border: none !important;
+}
+
+.dropdown .btn-secondary:active, .dropdown .btn-secondary:focus, .dropdown .btn-secondary:hover  {
+    background: linear-gradient(to bottom right, var(--dua), var(--tiga)) !important;
+    transition: .5s;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+a.dropdown-item:hover, a.dropdown-item:active{
+    background-color: #1cbf78;
+    color: white;
+    padding: 10px;
+
+}
+
+a.dropdown-item:focus {
+    background-color: #2f9468c3;
+    color: white;
+}
+
 .btn.btn-primary-gradient,
 .btn.btn-secondary-gradient::after {
     background: linear-gradient(to bottom right, var(--tiga), var(--dua));
@@ -219,7 +245,7 @@ h6,
 
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link.active {
-        color: var(--primary) !important;
+        color: #1cbf78 !important;
     }
 
     .navbar-light .navbar-brand h1 {
@@ -275,11 +301,34 @@ h6,
     background-repeat: no-repeat;
 }
 
+.konten-section
+{
+    margin-bottom: 5rem;
+    min-height: 100vh;
+    padding: 13rem 0 25rem 0;
+    background:
+        url(../img/bg-circle.png),
+        url(../img/bg-triangle.png),
+        linear-gradient(to bottom right, var(--dua), var(--tiga));
+    background-position:
+        left 0px top 0px,
+        right 0px top 50%,
+        center bottom;
+    background-repeat: no-repeat;
+}
+
+
 @media (max-width: 991.98px) {
     .hero-header {
         padding: 9rem 0 16rem 0;
         margin-bottom: 3rem;
+    }
 
+    .konten-section
+    {   
+        min-height: 75vh;
+        padding: 9rem 0 16rem 0;
+        margin-bottom: 3rem;
     }
 }
 

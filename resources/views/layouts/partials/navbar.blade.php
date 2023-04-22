@@ -13,6 +13,27 @@
             <a href="#qc" class="nav-item nav-link">Quick Count</a>
             <a href="#voting" class="nav-item nav-link">Voting</a>
         </div>
-        <a href="" class="btn btn-primary-gradient rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Login</a>
+        
+        
+        @guest
+        <a href="{{route('login')}}" class="btn btn-primary-gradient rounded-pill py-2 px-4 d-md-block d-block mt-md-0 mt-3">Login</a>
+        @endguest
+        
+        @auth
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle rounded-pill py-2 px-4 d-md-block d-block mt-md-0 mt-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+               Hai, {{auth()->user()->fullname}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            @if (auth()->user()->role == 'Admin')
+                <li><a class="dropdown-item" href="{{route('management-peserta.index')}}">Management Peserta</a></li>
+                <li><a class="dropdown-item" href="#">Management Kandidat</a></li>
+                <li><a class="dropdown-item" href="#">Report</a></li>
+                <hr>
+            @endif
+                <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+            </ul>
+        </div>
+        @endauth
     </div>
 </nav>
