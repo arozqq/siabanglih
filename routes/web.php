@@ -1,6 +1,5 @@
 <?php
-
-use App\Http\Controllers\Admin\ManagementPeserta;
+use App\Http\Controllers\Admin\ManagementPesertaController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +24,10 @@ Route::post('/login', [LoginController::class, 'cek_login'])->name('cek_login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('management-peserta', ManagementPeserta::class);
+    Route::get('management-peserta', [ManagementPesertaController::class, 'index'])->name('management-peserta.index');
+    Route::post('store-peserta', [ManagementPesertaController::class, 'store'])->name('management-peserta.store');
+    Route::get('peserta/{id}/edit', [ManagementPesertaController::class, 'edit']);
+    Route::delete('delete-peserta/delete/{id}', [ManagementPesertaController::class, 'destroy']);
+    Route::delete('selected-peserta', [ManagementPesertaController::class, 'deleteSelected'])->name('management-peserta.delete-selected');
+    
 });

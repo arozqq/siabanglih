@@ -3,7 +3,8 @@
     @include('layouts.partials.navbar')
     
     <div class="container-xxl konten-section"  style="">
-        <div class="container px-lg-5">
+        <div class="container">
+            <x-alert></x-alert>
             @yield('content')
         </div>
     </div>

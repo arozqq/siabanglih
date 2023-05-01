@@ -11,7 +11,7 @@
             <a href="#home" class="nav-item nav-link active">Home</a>
             <a href="#kandidat" class="nav-item nav-link">Kandidat & Peserta</a>
             <a href="#qc" class="nav-item nav-link">Quick Count</a>
-            <a href="#voting" class="nav-item nav-link">Voting</a>
+            <a href="#voting" class="nav-item nav-link">Voting</a>   
         </div>
         
         
