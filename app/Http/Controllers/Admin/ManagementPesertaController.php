@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\Selectable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 use Illuminate\Validation\Rule;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ManagementPesertaController extends Controller
 {
@@ -175,4 +177,5 @@ class ManagementPesertaController extends Controller
         User::whereIn('id', explode(",", $ids))->delete();
         return response()->json(['success' => "Semua Peserta berhasil dihapus"]);
     }
+
 }

@@ -45,6 +45,26 @@ class UsersTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'fullname'	=> 'Rika',
+                'nik' => '3674062010970040',
+                'email'	=> 'rika@gmail.com',
+                'password'	=> bcrypt('ajibganteng'),
+                'role' => 'User',
+                'submited' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'fullname'	=> 'Neneng',
+                'nik' => '3674062010970050',
+                'email'	=> 'neneng@gmail.com',
+                'password'	=> bcrypt('ajibganteng'),
+                'role' => 'User',
+                'submited' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
          
     ]);
     }

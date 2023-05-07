@@ -27,7 +27,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             @if (auth()->user()->role == 'Admin')
                 <li><a class="dropdown-item" href="{{route('management-peserta.index')}}">Management Peserta</a></li>
-                <li><a class="dropdown-item" href="#">Management Kandidat</a></li>
+                <li><a class="dropdown-item" href="{{route('management-kandidat.index')}}">Management Kandidat</a></li>
                 <li><a class="dropdown-item" href="#">Report</a></li>
                 <hr>
             @endif
