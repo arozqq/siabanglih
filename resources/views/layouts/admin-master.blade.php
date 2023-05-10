@@ -7,8 +7,6 @@
             <x-alert></x-alert>
             @yield('content')
         </div>
-          
     </div>
-
 </div>
 @include('layouts.partials.footer')

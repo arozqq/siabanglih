@@ -66,7 +66,7 @@
                     if(data === null) {
                         return '<p>Belum ada foto</p>';
                         } else {
-                            return '<img src="../'+data+'" height="50"/>'
+                            return '<img src="'+data+'" height="50"/>'
                         }
                     },
                     orderable:false

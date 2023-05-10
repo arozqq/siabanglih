@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-    <a href="" class="navbar-brand p-0">
+    <a href="/" class="navbar-brand p-0">
         <h1 class="m-0">SiAbanglih</h1>
         <!-- <img src="img/logo.png" alt="Logo"> -->
     </a>
@@ -11,7 +11,7 @@
             <a href="#home" class="nav-item nav-link active">Home</a>
             <a href="#kandidat" class="nav-item nav-link">Kandidat & Peserta</a>
             <a href="#qc" class="nav-item nav-link">Quick Count</a>
-            <a href="#voting" class="nav-item nav-link">Voting</a>   
+            <a href="voting" class="nav-item nav-link">Voting</a>   
         </div>
         
         

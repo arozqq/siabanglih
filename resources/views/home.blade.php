@@ -20,7 +20,11 @@
                         <div class="d-flex">
                             <i class="fa fa-users fa-2x text-primary-gradient flex-shrink-0 mt-1"></i>
                             <div class="ms-3">
-                                <h3 class="mb-0" data-toggle="counter-up">1234</h3>
+                                @if ($kandidat > 0)
+                                <h3 class="mb-0" data-toggle="counter-up">{{$kandidat}}</h3>
+                                @else 
+                                <h3 class="mb-0" data-toggle="counter-up">0</h3>
+                                @endif
                                 <p class="text-primary-gradient mb-0">Total Kandidat</p>
                             </div>
                         </div>
@@ -30,7 +34,11 @@
                         <div class="d-flex">
                             <i class="fa fa-clipboard-check fa-2x text-primary-gradient flex-shrink-0 mt-1"></i>
                             <div class="ms-4">
-                                <h3 class="mb-0" data-toggle="counter-up">1234</h3>
+                                @if ($user > 0)
+                                <h3 class="mb-0" data-toggle="counter-up">{{$user}}</h3>
+                                @else 
+                                <h3 class="mb-0" data-toggle="counter-up">0</h3>
+                                @endif
                                 <p class="text-primary-gradient mb-0">Peserta Sudah Memilih</p>
                             </div>
                         </div>
@@ -41,7 +49,11 @@
                         <div class="d-flex">
                             <i class="fa fa-user-times fa-2x text-secondary-gradient flex-shrink-0 mt-1"></i>
                             <div class="ms-3">
-                                <h3 class="mb-0" data-toggle="counter-up">1234</h3>
+                                @if ($user_b_pilih > 0)
+                                <h3 class="mb-0" data-toggle="counter-up">{{$user_b_pilih}}</h3>
+                                @else 
+                                <h3 class="mb-0" data-toggle="counter-up">0</h3>
+                                @endif
                                 <p class="text-disabled mb-0">Peserta Belum Memilih</p>
                             </div>
                         </div>
@@ -60,84 +72,54 @@
     <div class="container py-5 px-lg-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="text-primary-gradient fw-medium">Visi & Misi</h5>
-            <h1 class="mb-5">Apa Kata Para Peserta ?</h1>
+            <h1 class="mb-5">Apa Kata Para Kandidat ?</h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-            <div class="testimonial-item rounded p-4">
-                <div class="d-flex align-items-center mb-4">
-                    <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset('asset/img/testimonial-1.jpg')}}" style="width: 85px; height: 85px;">
-                    <div class="ms-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p class="mb-1">Profession</p>
-                        <div>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
+            @forelse ($data_kandidat as $dk)
+            <div class="card mx-3">
+                <div class="testimonial-item rounded p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset($dk->foto_kandidat)}}" style="width: 85px; height: 85px;">
+                        <div class="ms-4">
+                            <h5 class="mb-1">{{$dk->nama_kandidat}}</h5>
                         </div>
                     </div>
-                </div>
-                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-            </div>
-            <div class="testimonial-item rounded p-4">
-                <div class="d-flex align-items-center mb-4">
-                    <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset('asset/img/testimonial-2.jpg')}}" style="width: 85px; height: 85px;">
-                    <div class="ms-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p class="mb-1">Profession</p>
-                        <div>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#visi-{{$dk->id}}" aria-expanded="false" aria-controls="visi-{{$dk->id}}">
+                              Visi
+                            </button>
+                          </h2>
+                          <div id="visi-{{$dk->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">{{$dk->visi}}</div>
+                          </div>
                         </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#misi-{{$dk->id}}" aria-expanded="false" aria-controls="misi-{{$dk->id}}">
+                              Misi
+                            </button>
+                          </h2>
+                          <div id="misi-{{$dk->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">{{$dk->misi}}</div>
+                          </div>
+                      </div>
                     </div>
-                </div>
-                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div> 
             </div>
-            <div class="testimonial-item rounded p-4">
-                <div class="d-flex align-items-center mb-4">
-                    <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset('asset/img/testimonial-3.jpg')}}" style="width: 85px; height: 85px;">
-                    <div class="ms-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p class="mb-1">Profession</p>
-                        <div>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                        </div>
-                    </div>
-                </div>
-                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-            </div>
-            <div class="testimonial-item rounded p-4">
-                <div class="d-flex align-items-center mb-4">
-                    <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset('asset/img/testimonial-4.jpg')}}" style="width: 85px; height: 85px;">
-                    <div class="ms-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p class="mb-1">Profession</p>
-                        <div>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                            <small class="fa fa-star text-warning"></small>
-                        </div>
-                    </div>
-                </div>
-                <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-            </div>
+            
+            @empty
+                <h5 class="text-info">Belum ada kandidat.</h5>
+            @endforelse
+            
         </div>
     </div>
 </div>
 <!-- Kandidat End -->
 
 <!-- QC Start -->
-<div class="container-xxl py-5" id="qc">
+<div class="container-xxl py-4" id="qc">
     <div class="container py-5 px-lg-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="text-primary-gradient fw-medium">Perolehan Data</h5>

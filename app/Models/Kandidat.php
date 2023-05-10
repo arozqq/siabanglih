@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Kandidat extends Model
 {
@@ -11,7 +12,6 @@ class Kandidat extends Model
 
     protected $fillable = ['nama_kandidat', 'foto_kandidat', 'visi', 'misi', 'status'];
 
-    
     public function getCreatedAtAttribute()
     {
         return \Carbon\Carbon::parse($this->attributes['created_at'])
@@ -23,4 +23,12 @@ class Kandidat extends Model
         return \Carbon\Carbon::parse($this->attributes['updated_at'])
             ->diffForHumans();
     }
+
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+   
 }
