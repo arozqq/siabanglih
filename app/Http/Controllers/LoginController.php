@@ -23,9 +23,10 @@ class LoginController extends Controller
             'nik' => 'required|min:16|max:16',
             'password' => 'required'
         ], [
-            'nik.required' => 'NIK wajib diisi',
-            'nik.min:16' => 'NIK harus berisi 16 Angka',
-            'nik.max:16' => 'NIK maksimal 16 angka',
+            'nik.required' => 'Kolom NIK harus diisi',
+            'nik.numeric' => 'Kolom NIK harus berisi nilai numerik',
+            'nik.min' => 'Kolom NIK harus memiliki panjang minimal 16 karakter',
+            'nik.max' => 'Kolom NIK harus memiliki panjang maksimal 16 karakter',
             'password.required' => 'Kolom Password wajib diisi',
         ]);
 
