@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ManagementKandidatController;
 use App\Http\Controllers\Admin\ManagementPesertaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QuickCountController;
 use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-
+Route::get('/quick-count', [QuickCountController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'cek_login'])->name('cek_login');

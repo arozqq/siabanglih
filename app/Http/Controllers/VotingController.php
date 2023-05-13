@@ -37,7 +37,7 @@ class VotingController extends Controller
         $user = new User;
         $user->id = $user_login;
         $user->save;
-
+        
         $user->kandidats()->sync($request->votes);
         
       

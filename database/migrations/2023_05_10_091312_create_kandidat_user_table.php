@@ -23,6 +23,7 @@ class CreateKandidatUserTable extends Migration
     
             $table->foreign('kandidat_id')->references('id')->on('kandidats')
             ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

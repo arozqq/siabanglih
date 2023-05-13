@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImportFileToUsersTable extends Migration
+class AddLoginInfoToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddImportFileToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('import_file')->nullable();
+            $table->timestamp('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
         });
     }
 
@@ -25,6 +26,9 @@ class AddImportFileToUsersTable extends Migration
      */
     public function down()
     {
-            Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('last_login_at');
+            $table->dropColumn('last_login_ip');
+        });
     }
 }

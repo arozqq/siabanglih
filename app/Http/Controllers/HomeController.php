@@ -17,6 +17,10 @@ class HomeController extends Controller
         $user_b_pilih = User::where('submited', 0)
                 ->where('role', 'User')->count();
         $data_kandidat = Kandidat::get();
-        return view('home', compact('kandidat', 'user', 'user_b_pilih', 'data_kandidat'));
+
+        $items = Kandidat::withCount('users')->orderByDesc('users_count')->get();
+        $total_user = User::where('role', 'User')->count();
+
+        return view('home', compact('kandidat', 'user', 'user_b_pilih', 'data_kandidat', 'items', 'total_user'));
     }
 }

@@ -120,7 +120,7 @@
 
 <!-- QC Start -->
 <div class="container-xxl py-4" id="qc">
-    <div class="container py-5 px-lg-5">
+    <div class="container py-4 px-lg-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="text-primary-gradient fw-medium">Perolehan Data</h5>
             <h1 class="mb-5">Quick Count</h1>
@@ -128,17 +128,94 @@
         <div class="row g-4">
             <div class="col-lg wow fadeInUp" data-wow-delay="0.1s">
                 <div class="feature-item bg-light rounded p-4">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-primary-gradient rounded-circle mb-4" style="width: 60px; height: 60px;">
-                        <i class="fa fa-pen text-white fs-4"></i>
-                    </div>
-                    <h5 class="mb-3">Dummy</h5>
-                    <p class="m-0">Dummy Quick Count</p>
+                   <div id="chart"></div>
                 </div>
             </div>
         </div>
+        <a href="quick-count" class="wow fadeInUp btn btn-primary-gradient rounded-pill py-2 px-4 d-md-inline-block d-block mt-4">Lihat Selengkapnya</a>
     </div>
 </div>
 <!-- QC End -->
+@push('after-script')
+<script>
+  var options = {
+          series: [{
+            name: 'Perolehan Suara',
+            data: [
+                    @foreach($items as $item)
+                            '{{ $item->users_count }}',
+                    @endforeach
+                ]
+            }],
+            chart: {
+            type: 'bar',
+            height: '595'
+            },
+            colors: ['#0EB193'],
+            plotOptions: {
+                bar: {
+                    borderRadius: 4,
+                    horizontal: true,
+                }
+            },
+            dataLabels: {
+                enabled: true
+            },
+            noData: {
+            text: "Loading...",
+            },
+            xaxis: {
+                categories: [
+                    @foreach($items as $item)
+                            '{{ $item->nama_kandidat }}',
+                    @endforeach
+                ],
+                min: 0,
+                max: {{$total_user}},
+                labels: {
+                    formatter: function (val) {
+                        return val.toFixed(0);
+                    }
+                },
+                decimalsInFloat: 0,
+            },
+            yaxis: {
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: true
+                },
+                labels: {
+                    show: true
+                },
+                
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: true,
+            },
+            tooltip: {
+             shared: false,
+                x: {
+                    formatter: function (val) {
+                    return val
+                    }
+                },
+                y: {
+                    formatter: function (val) {
+                    return Math.abs(val)
+                    }
+                }
+            },
+        };
 
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+  
+
+
+</script>
+@endpush  
 
 @include('layouts.partials.footer')

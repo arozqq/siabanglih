@@ -8,10 +8,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
-            <a href="#home" class="nav-item nav-link active">Home</a>
-            <a href="#kandidat" class="nav-item nav-link">Kandidat & Peserta</a>
-            <a href="#qc" class="nav-item nav-link">Quick Count</a>
-            <a href="voting" class="nav-item nav-link">Voting</a>   
+            <a href="/" class="nav-item nav-link {{Request::is('/') ? "active" : ""}}">Home</a>
+            <a href="quick-count" class="nav-item nav-link {{Request::is('quick-count') ? "active" : ""}}">Quick Count</a>
+            <a href="voting" class="nav-item nav-link {{Request::is('voting') ? "active" : ""}}">Voting</a>   
         </div>
         
         
@@ -26,8 +25,8 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             @if (auth()->user()->role == 'Admin')
-                <li><a class="dropdown-item" href="{{route('management-peserta.index')}}">Management Peserta</a></li>
-                <li><a class="dropdown-item" href="{{route('management-kandidat.index')}}">Management Kandidat</a></li>
+                <li><a class="dropdown-item {{Request::is('management-peserta') ? "active" : ""}}" href="{{route('management-peserta.index')}}">Management Peserta</a></li>
+                <li><a class="dropdown-item {{Request::is('management-kandidat') ? "active" : ""}}" href="{{route('management-kandidat.index')}}">Management Kandidat</a></li>
                 <li><a class="dropdown-item" href="#">Report</a></li>
                 <hr>
             @endif

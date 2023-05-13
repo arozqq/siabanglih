@@ -108,7 +108,7 @@ h6,
     outline: none !important;
 }
 
-a.dropdown-item:hover, a.dropdown-item:active{
+a.dropdown-item:hover, a.dropdown-item:active, a.dropdown-item.active{
     background-color: #1cbf78;
     color: white;
     padding: 10px;
