@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ManagementKandidatController;
 use App\Http\Controllers\Admin\ManagementPesertaController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuickCountController;
@@ -37,6 +38,8 @@ Route::middleware(['auth','admin'])->group(function () {
     // KANDIDAT
     Route::resource('management-kandidat', ManagementKandidatController::class);
     Route::delete('selected-kandidat', [ManagementKandidatController::class, 'deleteSelected'])->name('management-kandidat.delete-selected');
+
+    Route::get('/report', [ReportController::class, 'index'])->name('report.index');
 });
 
 Route::middleware(['auth'])->group(function() {

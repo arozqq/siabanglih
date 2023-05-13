@@ -27,7 +27,7 @@
             @if (auth()->user()->role == 'Admin')
                 <li><a class="dropdown-item {{Request::is('management-peserta') ? "active" : ""}}" href="{{route('management-peserta.index')}}">Management Peserta</a></li>
                 <li><a class="dropdown-item {{Request::is('management-kandidat') ? "active" : ""}}" href="{{route('management-kandidat.index')}}">Management Kandidat</a></li>
-                <li><a class="dropdown-item" href="#">Report</a></li>
+                <li><a class="dropdown-item {{Request::is('report') ? "active" : ""}}" href="report">Report</a></li>
                 <hr>
             @endif
                 <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>

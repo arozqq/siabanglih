@@ -37,8 +37,8 @@ class LoginController extends Controller
 
         if(Auth::attempt($data)) {
             $user = auth()->user()->id;
-            $update_user = User::find($user);
-            $update_user->update([
+            $update_user = User::findOrFail($user);
+            $update_user->save([
                 'last_login_at' => now(),
                 'last_login_ip' => $request->ip()
             ]);

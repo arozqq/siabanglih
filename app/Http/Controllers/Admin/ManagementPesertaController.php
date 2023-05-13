@@ -20,7 +20,7 @@ class ManagementPesertaController extends Controller
      */
     public function index(Request $request)
     {   
-         $peserta = User::where('role', '!=', 'Admin')->latest()->get();
+        $peserta = User::where('role', '!=', 'Admin')->latest()->get();
         if ($request->ajax()) {
             return DataTables::of($peserta)
                     ->addIndexColumn()

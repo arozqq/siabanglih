@@ -27,7 +27,7 @@
                   @endif  
                     <div class="card-body text-center">
                         <h5 class="card-title mb-2">{{$kd->nama_kandidat}}</h5>
-                        <h5 class="">{{round(($kd->users_count / $total_user) * 100)}}% Suara</h5>
+                        <h5 class="">{{($kd->users_count / $total_user) * 100}}% Suara</h5>
                     </div>
                   </div>
             </div>
