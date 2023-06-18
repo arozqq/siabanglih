@@ -2,9 +2,16 @@
 @section('content')
 <h3 class="text-white mb-3">Voting</h3>
 <div class="col-lg-12">
-    <div class="card">
+    <div class="card p-3">
         <div class="card-header">
-            Silahkan Tentukan Pilihan Anda !
+          <div class="row">
+            <div class="col">
+              <h5>Silahkan Tentukan Pilihan Anda !</h5>
+            </div>
+            <div class="col">
+              <div class="count-check">Total dipilih : 0</div>
+            </div>
+          </div>
         </div>
         <form action="/voting/store" method="POST">
           @csrf  
@@ -62,9 +69,24 @@
 
   @push('after-script')
       <script>
-        // $('.cek-suara').click(function(){
-        //     alert('KONTOL');
-        // });
+        var checkboxes = document.querySelectorAll('.cek-suara');
+        // Menambahkan event listener untuk setiap checkbox
+        checkboxes.forEach(function(checkbox) {
+          checkbox.addEventListener('change', updateCount);
+        });
+
+        // Fungsi untuk mengupdate jumlah checkbox tercentang
+        function updateCount() {
+          var checkedCount = 0;
+
+          // Menghitung jumlah checkbox yang tercentang
+          checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+              $('.count-check').html('Total dipilih : ' + ++checkedCount)
+            }
+          });
+        }
+       
       </script>
   @endpush  
 @endsection

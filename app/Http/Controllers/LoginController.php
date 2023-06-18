@@ -20,32 +20,24 @@ class LoginController extends Controller
     public function cek_login(Request $request)
     {   
         $request->validate([
-            'nik' => 'required|min:16|max:16',
+            'username' => 'required|min:5',
             'password' => 'required'
         ], [
-            'nik.required' => 'Kolom NIK harus diisi',
-            'nik.numeric' => 'Kolom NIK harus berisi nilai numerik',
-            'nik.min' => 'Kolom NIK harus memiliki panjang minimal 16 karakter',
-            'nik.max' => 'Kolom NIK harus memiliki panjang maksimal 16 karakter',
+            'username.required' => 'Kolom Username harus diisi',
+            'username.min' => 'Kolom username harus memiliki panjang minimal 5 karakter',
             'password.required' => 'Kolom Password wajib diisi',
         ]);
 
         $data = [
-            'nik' => $request->input('nik'),
+            'username' => $request->input('username'),
             'password' => $request->input('password')
         ];
         
 
         if(Auth::attempt($data)) {
-            $user = auth()->user()->id;
-            $update_user = User::findOrFail($user);
-            $update_user->save([
-                'last_login_at' => now(),
-                'last_login_ip' => $request->ip()
-            ]);
             return redirect('/');
         } else {
-            return back()->with('error', 'NIK atau password salah');
+            return back()->with('error', 'Username atau Password salah');
         }
     }
 

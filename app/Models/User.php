@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'nik',
+        'username',
         'submited',
         'role',
         'import_file'

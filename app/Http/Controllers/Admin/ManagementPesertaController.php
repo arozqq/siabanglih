@@ -68,21 +68,19 @@ class ManagementPesertaController extends Controller
         if (($request->id)) {
             $request->validate([
                 'email' => 'required|unique:users,email', Rule::unique('users')->ignore($user),
-                'nik' => 'required|min:16|max:16|unique:users,nik', Rule::unique('users')->ignore($user),
+                'username' => 'required|min:5|unique:users,username', Rule::unique('users')->ignore($user),
             ], 
             [
                 'email.required' => 'Field Email harus diisi',
                 'email.unique' => 'Email sudah terdaftar',
-                'nik.required' => 'Field NIK harus diisi',
-                'nik.unique' => 'Nomor NIK sudah terdaftar',
-                'nik.numeric' => 'Field NIK harus berisi nilai numerik',
-                'nik.min' => 'Field NIK harus memiliki panjang minimal 16 karakter',
-                'nik.max' => 'Field NIK harus memiliki panjang maksimal 16 karakter',
+                'username.required' => 'Field username harus diisi',
+                'username.unique' => 'Username sudah terdaftar',
+                'username.min' => 'Field username harus memiliki panjang minimal 16 karakter',
             ]);
         } elseif (empty($request->id)) {
             $request->validate([
                 'email' => 'required',
-                'nik' => 'required|min:16|max:16|unique:users,nik',
+                'username' => 'required|min:5|unique:users,nik',
                 'fullname' => ['required', 'string', 'max:255'],
                 'role' => ['required', 'string'],
                 'password' => ['required', 'string', 'min:7'],
@@ -91,11 +89,9 @@ class ManagementPesertaController extends Controller
             'fullname.required' => 'Nama Lengkap Wajib di isi',
             'password.required' => 'Password Wajib di isi',
             'email.required' => 'Field Email harus diisi',
-            'nik.required' => 'Field NIK harus diisi',
-            'nik.unique' => 'Nomor NIK sudah terdaftar',
-            'nik.numeric' => 'Field NIK harus berisi nilai numerik',
-            'nik.min' => 'Field NIK harus memiliki panjang minimal 16 karakter',
-            'nik.max' => 'Field NIK harus memiliki panjang maksimal 16 karakter',
+            'username.required' => 'Field username harus diisi',
+            'username.unique' => 'Username sudah terdaftar',
+            'username.min' => 'Field username harus memiliki panjang minimal 16 karakter',
         ]    
         );
         }
@@ -105,7 +101,7 @@ class ManagementPesertaController extends Controller
             ['id' => $id],
             [
                 'fullname' => $request->fullname,
-                'nik' => $request->nik,
+                'username' => $request->username,
                 'role' => $request->role,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),

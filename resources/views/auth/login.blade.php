@@ -17,9 +17,10 @@
                             <form action="{{route('cek_login')}}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <label for="nik">NIK</label>
-                                    <input type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" id="nik" placeholder="Silahkan isi dengan NIK" value="{{old('nik')}}">
-                                    @error('nik')
+                                    {{-- <label for="nik">NIK</label> --}}
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" placeholder="Silahkan isi dengan NIK" value="{{old('username')}}">
+                                    @error('username')
                                     <small class="text-danger">{{$message}}</small>
                                     @enderror
                                 </div>

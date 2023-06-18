@@ -21,7 +21,7 @@
                              </th>
                               <th scope="col">Nama Lengkap</th>
                               <th scope="col">Email</th>
-                              <th scope="col">NIK</th>
+                              <th scope="col">Username</th>
                               <th scope="col">Role</th>
                               <th scope="col">Submited</th>
                               <th scope="col">Created at</th>
@@ -57,8 +57,8 @@
                             <input type="text" name="fullname" id="fullname" class="form-control @error('fullname') is-invalid @enderror" value="{{old('fullname')}}">
                         </div>
                         <div class="col-md-6 col-12 mb-2">
-                            <label for="nik" class="mb-2">NIK</label>
-                            <input type="text" name="nik" id="nik" class="form-control @error('nik') is-invalid @enderror" value="{{old('nik')}}">
+                            <label for="username" class="mb-2">Username</label>
+                            <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{old('username')}}">
                         </div>
                     </div>   
                     <div class="form-group row">
@@ -124,7 +124,7 @@
                   {data:'checkbox',name:'name', orderable: false, searchable: false},
                   {data: 'fullname', name: 'fullname'},
                   {data: 'email', name: 'email'},
-                  {data: 'nik', name: 'nik'},
+                  {data: 'username', name: 'username'},
                   {data: 'role', name: 'role'},
                   {data: 'submited', name: 'submited'},
                   {data: 'created_at', name: 'created_at'},
