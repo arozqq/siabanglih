@@ -65,4 +65,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Kandidat::class);
     }
+
+    public function setStatusTidakAktif()
+    {
+        $this->submited = 0;
+        $this->save();
+    }
 }

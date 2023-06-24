@@ -40,6 +40,7 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::delete('selected-kandidat', [ManagementKandidatController::class, 'deleteSelected'])->name('management-kandidat.delete-selected');
 
     Route::get('/report', [ReportController::class, 'index'])->name('report.index');
+    Route::get('/reset-voting', [ReportController::class, 'reset'])->name('report.reset');
 });
 
 Route::middleware(['auth'])->group(function() {

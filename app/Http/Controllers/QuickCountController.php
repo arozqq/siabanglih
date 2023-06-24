@@ -11,6 +11,7 @@ class QuickCountController extends Controller
     public function index(Request $request)
     {
          $items = Kandidat::withCount('users')->orderByDesc('users_count')->get();
+        //  dd($items);
          $total_user_milih = User::where('role', 'User')->where('submited', 1)->count();
          $total_user = User::where('role', 'User')->count();
 

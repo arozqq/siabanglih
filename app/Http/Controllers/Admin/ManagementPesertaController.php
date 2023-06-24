@@ -83,7 +83,7 @@ class ManagementPesertaController extends Controller
                 'username' => 'required|min:5|unique:users,nik',
                 'fullname' => ['required', 'string', 'max:255'],
                 'role' => ['required', 'string'],
-                'password' => ['required', 'string', 'min:7'],
+                'password' => ['required', 'string', 'min:5'],
         ],
         [
             'fullname.required' => 'Nama Lengkap Wajib di isi',

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Kandidat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class ReportController extends Controller
@@ -18,4 +19,17 @@ class ReportController extends Controller
         $total_suara_masuk = $total_user_milih / $total_user * 100 ;
        return view('admin.report.index', compact('items', 'total_user_milih', 'total_user','total_suara_masuk'));
     } 
+
+    public function reset()
+    {
+        DB::table('kandidat_user')->truncate();
+        $users = User::all();
+        foreach ($users as $user) {
+            $user->setStatusTidakAktif();
+        }
+
+        return response()->json([
+            'success' => 'perolehan suara berhasil direset!'
+        ]);
+    }
 }

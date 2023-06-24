@@ -2,14 +2,18 @@
 @section('content')
 <h3 class="text-white mb-3">Voting</h3>
 <div class="col-lg-12">
-    <div class="card p-3">
-        <div class="card-header">
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>Petunjuk :</strong> Jumlah formatur yang harus dipilih adalah <strong>9</strong> Kandidat. dari <strong>{{$total}}</strong> Kandidat.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    <div class="card p-3">  
+        <div class="card-header p-0 mb-3">
           <div class="row">
             <div class="col">
               <h5>Silahkan Tentukan Pilihan Anda !</h5>
             </div>
             <div class="col">
-              <div class="count-check">Total dipilih : 0</div>
+              <h4 class="count-check">Total dipilih : 0</h4>
             </div>
           </div>
         </div>
@@ -20,34 +24,14 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-12 mb-5">
                 <div class="card shadow"> 
                   @if ($kd->foto_kandidat === NULL)
-                  <p class="text-center p-3 bg-dark text-white">Belum Ada Foto</p>
+                  <img src="{{asset('foto/default.png')}}" class="img-responsive" alt="foto kandidat" height="220">
                   @else 
-                    <img src="{{$kd->foto_kandidat}}" class="card-img-top" alt="foto kandidat">
+                    <img src="{{$kd->foto_kandidat}}" class="img-responsive" alt="foto kandidat" height="220">
                   @endif  
                     <div class="card-body">
                         <h5 class="card-title mb-2">{{$kd->nama_kandidat}}</h5>
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#visi-{{$kd->id}}" aria-expanded="false" aria-controls="visi-{{$kd->id}}">
-                                  Visi
-                                </button>
-                              </h2>
-                              <div id="visi-{{$kd->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">{{$kd->visi}}</div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#misi-{{$kd->id}}" aria-expanded="false" aria-controls="misi-{{$kd->id}}">
-                                  Misi
-                                </button>
-                              </h2>
-                              <div id="misi-{{$kd->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">{{$kd->misi}}</div>
-                              </div>
-                          </div>
-                        </div>
+                        <p class="mb-0">Tempat Lahir : {{$kd->tempat_lahir}}</p>
+                        <p>Tanggal Lahir : {{$kd->tanggal_lahir}}</p>
                         <div class="form-check">
                             <input class="form-check-input cek-suara" type="checkbox" name="votes[]" value="{{$kd->id}}" id="vote-{{$kd->id}}">
                             <label class="form-check-label" for="vote-{{$kd->id}}">
@@ -59,9 +43,16 @@
             </div>
             @endforeach
             </div>
-            <div class="p-3">
-            <button type="submit" class="btn btn-primary">Kirim Pilihan</button>
+            <div class="row p-3">
+              <div class="col">
+                <button type="submit" class="btn btn-primary">Kirim Pilihan</button>
+              </div>
+              <div class="col">
+                <h4 class="count-check">Total dipilih : 0</h4>
+              </div>
             </div>
+            {{-- <div class="p-3">
+            </div> --}}
         </form>
     </div>
 </div>

@@ -124,6 +124,7 @@
                   {data:'checkbox',name:'name', orderable: false, searchable: false},
                   {data: 'fullname', name: 'fullname'},
                   {data: 'email', name: 'email'},
+                //   {data: 'nik', name: 'nik'},
                   {data: 'username', name: 'username'},
                   {data: 'role', name: 'role'},
                   {data: 'submited', name: 'submited'},
@@ -169,6 +170,7 @@
                 $('#id').val(data.id);
                 $('#fullname').val(data.fullname);
                 $('#nik').val(data.nik);
+                $('#username').val(data.username);
                 $('#email').val(data.email);
                 $('#role').val(data.role);
                 $('#submited').val(data.submited);

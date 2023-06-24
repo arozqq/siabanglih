@@ -15,9 +15,11 @@ class CreateKandidatsTable extends Migration
     {
         Schema::create('kandidats', function (Blueprint $table) {
             $table->id();
-
             $table->string('nama_kandidat');
             $table->string('foto_kandidat')->nullable();
+            $table->string('nbm')->unique()->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->text('visi')->nullable();
             $table->text('misi')->nullable();
             $table->integer('status')->default('1');

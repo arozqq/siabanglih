@@ -20,6 +20,9 @@
                                 </div>
                              </th>
                               <th scope="col">Nama Kandidat</th>
+                              <th scope="col">NBM</th>
+                              <th scope="col">Tempat Lahir</th>
+                              <th scope="col">Tanggal Lahir</th>
                               <th scope="col">Foto</th>
                               <th scope="col">Visi</th>
                               <th scope="col">Misi</th>
@@ -61,6 +64,9 @@
                   {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                   {data:'checkbox',name:'name', orderable: false, searchable: false},
                   {data: 'nama_kandidat', name: 'nama_kandidat'},
+                  {data: 'nbm', name: 'nbm'},
+                  {data: 'tempat_lahir', name: 'tempat_lahir'},
+                  {data: 'tanggal_lahir', name: 'tanggal_lahir'},
                   {data:'foto_kandidat', name:'foto_kandidat',
                     render: function(data, type, full, meta){
                     if(data === null) {

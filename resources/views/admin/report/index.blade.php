@@ -7,6 +7,7 @@
                     <h5 class="text-secondary-gradient pt-2">Report Perolehan Suara Kandidat</h5>
                 </div>
                 <div class="card-body">
+                  <button class="btn btn-sm btn-danger mb-4 reset-voting">Reset Voting</button>
                     <table class="table table-striped report-datatable">
                         <thead>
                             <tr>
@@ -25,7 +26,7 @@
                                 <td>{{$n++}}</td>
                                 <td>{{$item->nama_kandidat}}</td>
                                 <td>{{$item->users_count}}</td>
-                                <td>{{($item->users_count / $total_user) * 100}}% Suara</td>
+                                <td>{{number_format(($item->users_count / $total_user) * 100, 2, ',', '.')}}% Suara</td>
                             </tr>
                                 
                             @endforeach
@@ -56,6 +57,29 @@
           });
         });
         
+
+        $('.reset-voting').click(function(){
+          Swal.fire({
+              title: 'Apakah kamu yakin ?',
+              text: "Pengambilan suara akan di ambil ulang",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#47C363',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ya',
+              cancelButtonText: 'Batal'
+          }).then((result) => {
+              if (result.isConfirmed) {
+              $.ajax({
+                  url: '/reset-voting' ,
+                  success: function(response) {
+                  $('.report-datatable').DataTable().ajax.reload();
+                  Response(response);
+                  }
+                  })
+              }
+          });
+        });
       </script>
   @endpush  
 @endsection

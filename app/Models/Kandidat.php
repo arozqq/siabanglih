@@ -10,7 +10,7 @@ class Kandidat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama_kandidat', 'foto_kandidat', 'visi', 'misi', 'status'];
+    protected $fillable = ['nama_kandidat', 'foto_kandidat', 'visi', 'misi', 'status', 'tempat_lahir', 'tanggal_lahir', 'nbm'];
 
     public function getCreatedAtAttribute()
     {
@@ -20,8 +20,14 @@ class Kandidat extends Model
 
     public function getUpdatedAtAttribute()
     {
-        return \Carbon\Carbon::parse($this->attributes['updated_at'])
+        return \Carbon\Carbon::parse($this->attributes['tanggal_lahir'])
             ->diffForHumans();
+    }
+
+    public function getTanggalLahirAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['tanggal_lahir'])
+        ->format('d M Y');
     }
 
 

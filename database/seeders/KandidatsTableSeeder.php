@@ -16,16 +16,14 @@ class KandidatsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('id_ID');
-
-        for ($i=0; $i < 30; $i++) {
-            Kandidat::create([
-                'nama_kandidat' => $faker->name(),
-                'visi' => 'loremIpsumDolorimetVISI',
-                'misi' => 'loremIpsumDolorimetMISI',
-                'status' => 1,
-                'foto_kandidat' => $faker->imageUrl(640, 480)
-            ]);
-        }
+        DB::table('kandidats')->insert([
+            // [
+            //     'nama_kandidat' => 'Drs. H. Mutiri, M.M',
+            //     'nbm' => 'nbm' => ,
+            //     'tempat_lahir',
+            //     'tanggal_lahir',
+            //     'status' => 1,
+            // ],
+        ]);
     }
 }

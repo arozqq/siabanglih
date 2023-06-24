@@ -80,6 +80,9 @@ class ManagementKandidatController extends Controller
         Kandidat::create([
             'nama_kandidat' => $request->nama_kandidat,
             'foto_kandidat' => $foto,
+            'nbm' => $request->nbm,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
             'visi' => $request->visi,
             'misi' => $request->misi,
             'status' => $request->status
@@ -108,7 +111,7 @@ class ManagementKandidatController extends Controller
      */
     public function edit($id)
     {
-        $kandidat  = Kandidat::findOrFail($id)->first();
+        $kandidat  = Kandidat::findOrFail($id);
         return view('admin.kandidat.edit', compact('kandidat'));
     }
 

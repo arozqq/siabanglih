@@ -11,19 +11,20 @@ class VotingController extends Controller
 {
     public function index()
     {
-        $kandidat = Kandidat::get();
-        return view('voting.index', compact('kandidat'));
+        $kandidat = Kandidat::orderBy('nama_kandidat')->get();
+        $total = count($kandidat);
+        return view('voting.index', compact('kandidat', 'total'));
     }
 
     public function store(Request $request)
     {   
         $request->validate([
-            'votes' => 'required|array|min:13|max:13'
+            'votes' => 'required|array|min:9|max:9'
         ], [
             'votes.required' => 'Silahkan pilih beberapa kandidat terlebih dahulu',
             'votes.array' => 'Terjadi kesalahan silahkan dicoba lagi',
-            'votes.min' => 'Silahkan pilih minimal 13 Kandidat',
-            'votes.max' => 'Batas memilih maximal 13 Kandidat',
+            'votes.min' => 'Silahkan pilih minimal 9 Kandidat',
+            'votes.max' => 'Batas memilih maximal 9 Kandidat',
         ]);
 
         $user_login = auth()->user()->id;

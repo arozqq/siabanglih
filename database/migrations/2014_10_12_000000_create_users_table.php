@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('fullname');
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('nik')->unique()->nullable();
             $table->string('username')->unique();
+            $table->string('nik')->unique()->nullable();
             $table->integer('submited')->nullable();
             $table->string('password');
             $table->string('role')->default('User');

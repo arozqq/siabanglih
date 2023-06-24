@@ -10,7 +10,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{{asset('foto/muhammadiyah-logo.png')}}" rel="icon">
 
     @stack('before-script')
    

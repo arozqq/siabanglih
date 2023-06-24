@@ -12,14 +12,29 @@
                         @method('PUT')
                         <input type="hidden" name="id" id="id" value="{{$kandidat->id}}">
                         <div class="form-group row">
-                            <div class="col-md-6 col-12 mb-2">
+                            <div class="col-md-4 col-12 mb-2">
                                 <label for="nama_kandidat" class="mb-2">Nama Kandidat</label>
                                 <input type="text" name="nama_kandidat" id="nama_kandidat" class="form-control @error('nama_kandidat') is-invalid @enderror" value="{{old('nama_kandidat') ?? $kandidat->nama_kandidat}}">
                             </div>
-                            <div class="col-md-6 col-12 mb-2">
+                            <div class="col-md-4 col-12 mb-2">
+                                <label for="nbm" class="mb-2">NBM</label>
+                                <input type="text" name="nbm" id="nbm" class="form-control @error('nbm') is-invalid @enderror" value="{{old('nbm') ?? $kandidat->nbm}}">
+                            </div>
+                            <div class="col-md-4 col-12 mb-2">
                                 <label for="foto_kandidat" class="mb-2">Foto</label>
                                 <input type="file" name="foto_kandidat" id="foto_kandidat" class="form-select @error('foto_kandidat') is-invalid @enderror" value="{{old('foto_kandidat')}}">
                                 <input id="hidden_foto" type="hidden" name="hidden_foto" value="{{$kandidat->foto_kandidat}}">
+                            </div>
+                        </div>   
+
+                        <div class="form-group row">
+                            <div class="col-md-6 col-12 mb-2">
+                                <label for="tempat_lahir" class="mb-2">Tempat Lahir</label>
+                                <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" value="{{old('tempat_lahir') ?? $kandidat->tempat_lahir}}">
+                            </div>
+                            <div class="col-md-6 col-12 mb-2">
+                                <label for="tanggal_lahir" class="mb-2">tanggal_lahir</label>
+                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror" value="{{old('tanggal_lahir') ?? $kandidat->tanggal_lahir}}">
                             </div>
                         </div>   
                         
@@ -35,7 +50,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-6 col-12 mb-2">
-                                <label for="status" class="mb-2">Role</label>
+                                <label for="status" class="mb-2">Status</label>
                                 <select name="status" id="status" class="form-select">
                                     <option value="1" {{$kandidat->status == 1 ? 'selected' : ''}}>Aktif</option>
                                     <option value="0" {{$kandidat->status == 0 ? 'selected' : ''}}>Tidak Aktif</option>

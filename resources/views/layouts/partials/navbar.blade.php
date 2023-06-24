@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
     <a href="/" class="navbar-brand p-0">
         <h1 class="m-0">SiAbang</h1>
+        {{-- <p class="text-white m-0">Sistem Aplikasi Musyawarah Cabang</p> --}}
         <!-- <img src="img/logo.png" alt="Logo"> -->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

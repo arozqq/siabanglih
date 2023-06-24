@@ -71,20 +71,20 @@
 <div class="container-xxl py-5" id="kandidat">
     <div class="container py-5 px-lg-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h5 class="text-primary-gradient fw-medium">Visi & Misi</h5>
-            <h1 class="mb-5">Apa Kata Para Kandidat ?</h1>
+            {{-- <h5 class="text-primary-gradient fw-medium">Visi & Misi</h5> --}}
+            <h1 class="mb-5">Kandidat</h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
             @forelse ($data_kandidat as $dk)
             <div class="card mx-3">
                 <div class="testimonial-item rounded p-4">
                     <div class="d-flex align-items-center mb-4">
-                        <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset($dk->foto_kandidat)}}" style="width: 85px; height: 85px;">
+                        {{-- <img class="img-fluid bg-white rounded flex-shrink-0 p-1" src="{{asset($dk->foto_kandidat)}}" style="width: 85px; height: 85px;"> --}}
                         <div class="ms-4">
-                            <h5 class="mb-1">{{$dk->nama_kandidat}}</h5>
+                            <h5 class="mb-1 text-center">{{$dk->nama_kandidat}}</h5>
                         </div>
                     </div>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                    {{-- <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                           <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#visi-{{$dk->id}}" aria-expanded="false" aria-controls="visi-{{$dk->id}}">
@@ -105,7 +105,7 @@
                             <div class="accordion-body">{{$dk->misi}}</div>
                           </div>
                       </div>
-                    </div>
+                    </div> --}}
                 </div> 
             </div>
             
@@ -119,7 +119,7 @@
 <!-- Kandidat End -->
 
 <!-- QC Start -->
-<div class="container-xxl py-4" id="qc">
+{{-- <div class="container-xxl py-4" id="qc">
     <div class="container py-4 px-lg-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="text-primary-gradient fw-medium">Perolehan Data</h5>
@@ -134,7 +134,7 @@
         </div>
         <a href="quick-count" class="wow fadeInUp btn btn-primary-gradient rounded-pill py-2 px-4 d-md-inline-block d-block mt-4">Lihat Selengkapnya</a>
     </div>
-</div>
+</div> --}}
 <!-- QC End -->
 @push('after-script')
 <script>
