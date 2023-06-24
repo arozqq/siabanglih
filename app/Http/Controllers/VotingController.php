@@ -11,7 +11,7 @@ class VotingController extends Controller
 {
     public function index()
     {
-        $kandidat = Kandidat::orderBy('nama_kandidat')->get();
+        $kandidat = Kandidat::orderBy('nama_kandidat')->where('status', 1)->get();
         $total = count($kandidat);
         return view('voting.index', compact('kandidat', 'total'));
     }

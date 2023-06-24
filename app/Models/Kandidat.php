@@ -20,7 +20,7 @@ class Kandidat extends Model
 
     public function getUpdatedAtAttribute()
     {
-        return \Carbon\Carbon::parse($this->attributes['tanggal_lahir'])
+        return \Carbon\Carbon::parse($this->attributes['updated_at'])
             ->diffForHumans();
     }
 

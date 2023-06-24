@@ -24,8 +24,8 @@
                               <th scope="col">Tempat Lahir</th>
                               <th scope="col">Tanggal Lahir</th>
                               <th scope="col">Foto</th>
-                              <th scope="col">Visi</th>
-                              <th scope="col">Misi</th>
+                              {{-- <th scope="col">Visi</th> --}}
+                              {{-- <th scope="col">Misi</th> --}}
                               <th scope="col">Status</th>
                               <th scope="col">Created at</th>
                               <th scope="col">Updated at</th>
@@ -77,8 +77,8 @@
                     },
                     orderable:false
                   },
-                  {data: 'visi', name: 'visi'},
-                  {data: 'misi', name: 'misi'},
+                //   {data: 'visi', name: 'visi'},
+                //   {data: 'misi', name: 'misi'},
                   {data: 'status', name: 'status'},
                   {data: 'created_at', name: 'created_at'},
                   {data: 'updated_at', name: 'updated_at'},

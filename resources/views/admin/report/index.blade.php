@@ -73,7 +73,6 @@
               $.ajax({
                   url: '/reset-voting' ,
                   success: function(response) {
-                  $('.report-datatable').DataTable().ajax.reload();
                   Response(response);
                   }
                   })

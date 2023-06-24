@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-md-4 col-12 mb-2">
                                 <label for="tanggal_lahir" class="mb-2">Tanggal Lahir</label>
-                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror" value="{{old('tanggal_lahir')}}">
+                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror">
                             </div>
                         </div>   
                         

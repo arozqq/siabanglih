@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rule;
 
 class ManagementKandidatController extends Controller
 {
     public function index(Request $request)
     {   
-        $kandidat = Kandidat::latest()->get();
+        $kandidat = Kandidat::get();
         if ($request->ajax()) {
             return DataTables::of($kandidat)
                     ->addIndexColumn()
@@ -61,16 +62,18 @@ class ManagementKandidatController extends Controller
     {
         $request->validate([
             'foto_kandidat' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'nama_kandidat' => 'required|string'
+            'nama_kandidat' => 'required|string',
+            'nbm' => 'unique:kandidats,nbm'
         ], [
-            'nama_kandidat.required' => 'Nama Kandidat Wajib Di Isi'
+            'nama_kandidat.required' => 'Nama Kandidat Wajib Di Isi',
+            'nbm.unique' => 'NBM sudah terpakai'
         ]);
 
 
         $fotoInput = $request->file('foto_kandidat');
         if ($request->hasFile('foto_kandidat')) {
             $fotoInput = $request->file('foto_kandidat');
-            $imageName = date('YmdHis').'-'.$fotoInput->getClientOriginalName();
+            $imageName = date('YmdHis').'-'.strtolower(str_replace(" ", "-", $fotoInput->getClientOriginalName()));
             $fotoInput->move(public_path('foto'), $imageName);
             $foto = 'foto/' . strtolower(str_replace(" ", "-", $imageName));
         } else {
@@ -122,10 +125,22 @@ class ManagementKandidatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Kandidat $kandidat)
     {   
+
+        $request->validate([
+            'nama_kandidat' => 'required|string',
+            'nbm' => 'unique:users,username', Rule::unique('kandidats')->ignore($kandidat),
+        ], [
+            'nama_kandidat.required' => 'Nama Kandidat Wajib Di Isi',
+            'nbm.unique' => 'NBM sudah terpakai'
+        ]);
+
         $kandidat = Kandidat::findOrFail($request->id);
         $kandidat->nama_kandidat = $request->nama_kandidat;
+        $kandidat->nbm = $request->nbm;
+        $kandidat->tempat_lahir = $request->tempat_lahir;
+        $kandidat->tanggal_lahir = $request->tanggal_lahir;
         $kandidat->visi = $request->visi;
         $kandidat->misi = $request->misi;
         $kandidat->status = $request->status;
@@ -137,7 +152,7 @@ class ManagementKandidatController extends Controller
                 File::delete($path);
             } 
             $fotoInput = $request->file('foto_kandidat');
-            $imageName = date('YmdHis').'-'.$fotoInput->getClientOriginalName();
+            $imageName = date('YmdHis').'-'.strtolower(str_replace(" ", "-", $fotoInput->getClientOriginalName()));
             $fotoInput->move(public_path('foto'), $imageName);
             $kandidat->foto_kandidat = 'foto/'.strtolower(str_replace(" ", "-", $imageName));
         }

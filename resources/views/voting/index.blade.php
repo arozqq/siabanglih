@@ -10,7 +10,7 @@
         <div class="card-header p-0 mb-3">
           <div class="row">
             <div class="col">
-              <h5>Silahkan Tentukan Pilihan Anda !</h5>
+              <h5>Silahkan Tentukan Beberapa Pilihan Anda !</h5>
             </div>
             <div class="col">
               <h4 class="count-check">Total dipilih : 0</h4>
@@ -30,8 +30,11 @@
                   @endif  
                     <div class="card-body">
                         <h5 class="card-title mb-2">{{$kd->nama_kandidat}}</h5>
+                        <p class="mb-0">NBM : {{$kd->nbm}}</p>
                         <p class="mb-0">Tempat Lahir : {{$kd->tempat_lahir}}</p>
                         <p>Tanggal Lahir : {{$kd->tanggal_lahir}}</p>
+                     
+                      
                         <div class="form-check">
                             <input class="form-check-input cek-suara" type="checkbox" name="votes[]" value="{{$kd->id}}" id="vote-{{$kd->id}}">
                             <label class="form-check-label" for="vote-{{$kd->id}}">

@@ -4,8 +4,8 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body text-center">
-           <h3 >{{number_format($total_suara_masuk, 2, ',', '.')}} % Suara Masuk</h3>
-           <p>dari total peserta</p>
+           <h3 class="mt-2">{{number_format($total_suara_masuk, 2, ',', '.')}} % Suara Masuk</h3>
+           <p>dari <strong>{{$total_user}}</strong> pemilih</p>
         </div>
     </div>
     <div class="card mt-3">
@@ -69,7 +69,7 @@
             xaxis: {
                 categories: [
                     @foreach($items as $item)
-                            '{{ $item->nama_kandidat }}',
+                            "{{ $item->nama_kandidat }}",
                     @endforeach
                 ],
                 min: 0,
